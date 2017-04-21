@@ -36,11 +36,31 @@ dictionary = Dictionary.from_file('words/words.txt')
     end
   end
 
-  define_method(:check_all?) do |word2|
-    if self.anagram?(word2) == true
-      self.palindrome?
+  # define_method(:check_all?) do |word2|
+  #   if self.anagram?(word2) == true
+  #     self.palindrome?
+  #   else
+  #     false
+  #   end
+  # end
+  define_method(:check_all) do |word2|
+    if self.word?(word2) == true
+      # if its a word than check if its an anagram
+        if self.anagram?(word2) == true
+          if self.palindrome? == true
+            result = "It's an anagram and a palindrome"
+          else
+            result = "It's just an anagram"
+          end
+        else
+          if self.antigram?(word2) == true
+            result = "It's an antigram"
+          else
+            result = "It's nothing"
+          end
+        end
     else
-      false
+      result = "It's not a word"
     end
   end
 

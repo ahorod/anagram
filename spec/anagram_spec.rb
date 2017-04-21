@@ -21,12 +21,12 @@ describe('String#anagram?') do
     expect("Test to test the test".anagram?("Beautiful sunny day")).to(eq(false))
   end
 end
-describe('String#check_all?') do
+describe('String#check_all') do
   it('if a word is anagram check if it is a palindrome') do
-    expect('Level'.check_all?("eevll")).to(eq(true))
+    expect('Anna'.check_all("nana")).to(eq("It's an anagram and a palindrome"))
   end
   it('if a word is anagram check if it is NOT a palindrome') do
-    expect('tea'.check_all?('bee')).to(eq(false))
+    expect('tea'.check_all('eat')).to(eq("It's just an anagram"))
   end
 end
 
@@ -53,5 +53,11 @@ describe('String#antigram?') do
   end
   it('Check if two words are NOT antigrams') do
     expect("united".antigram?("untied")).to(eq(false))
+  end
+  it('Check if two sentences are antigrams') do
+    expect("hi oLa la".antigram?("BYE beby")).to(eq(true))
+  end
+  it('Check if two sentences are NOT antigrams') do
+    expect("The public art galleries".antigram?("Large picture halls, I bet")).to(eq(false))
   end
 end
