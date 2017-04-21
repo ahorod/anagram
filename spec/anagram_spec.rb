@@ -39,14 +39,14 @@ describe('String#palindrome?') do
   end
 end
 
-# describe('String#word?') do
-#   it('Check if two words are actual words') do
-#     expect("listen", "silent".word?()).to(eq(true))
-#   end
-#   it('Check if two words are NOT actual words') do
-#     expect("yurb", "ruby".word?()).to(eq(false))
-#   end
-# end
+describe('String#word?') do
+  it('Check if two words are actual words') do
+    expect("listen".word?("silent")).to(eq(true))
+  end
+  it('Check if two words are NOT actual words') do
+    expect("yurb".word?("ruby")).to(eq(false))
+  end
+end
 # describe('String#antigram?') do
 #   it('Check if two words are antigrams') do
 #     expect("hi", "bye".word?()).to(eq(true))
