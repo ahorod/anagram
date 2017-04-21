@@ -36,13 +36,16 @@ dictionary = Dictionary.from_file('words/words.txt')
     end
   end
 
-  # define_method(:check_all?) do |word2|
-  #   if self.anagram?(word2) == true
-  #     self.palindrome?
-  #   else
-  #     false
-  #   end
-  # end
+  define_method(:antigram?) do |word2|
+    word_1_arr = self.downcase().gsub(/[^a-z0-9]/,"").split("")
+    word_2_arr = word2.downcase().gsub(/[^a-z0-9]/,"").split("")
+    if word_1_arr.sort - word_2_arr.sort == word_1_arr.sort && word_2_arr.sort - word_1_arr.sort == word_2_arr.sort
+      true
+    else
+      false
+    end
+  end
+
   define_method(:check_all) do |word2|
     if self.word?(word2) == true
       # if its a word than check if its an anagram
@@ -61,16 +64,6 @@ dictionary = Dictionary.from_file('words/words.txt')
         end
     else
       result = "It's not a word"
-    end
-  end
-
-  define_method(:antigram?) do |word2|
-    word_1_arr = self.downcase().gsub(/[^a-z0-9]/,"").split("")
-    word_2_arr = word2.downcase().gsub(/[^a-z0-9]/,"").split("")
-    if word_1_arr.sort - word_2_arr.sort == []
-      false
-    else
-      true
     end
   end
 

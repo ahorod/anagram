@@ -28,6 +28,15 @@ describe('String#check_all') do
   it('if a word is anagram check if it is NOT a palindrome') do
     expect('tea'.check_all('eat')).to(eq("It's just an anagram"))
   end
+  it('if a word is not anagram check if it an antigram') do
+    expect('bye'.check_all('hello')).to(eq("It's nothing"))
+  end
+  it('check if it is a word') do
+    expect('asssgh'.check_all('hello')).to(eq("It's not a word"))
+  end
+  it('check if it is a word') do
+    expect('asssgh'.check_all('hello')).to(eq("It's not a word"))
+  end
 end
 
 describe('String#palindrome?') do
