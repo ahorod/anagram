@@ -21,14 +21,24 @@ describe('String#anagram?') do
     expect("Test to test the test".anagram?("Beautiful sunny day")).to(eq(false))
   end
 end
-# describe('String#palindrome?') do
-#   it('Check if a word is palindrome') do
-#     expect('Level'.palindrome?()).to(eq(true))
-#   end
-#   it('Check if a word is NOT a palindrome') do
-#     expect('testtesttest'.palindrome?()).to(eq(false))
-#   end
-# end
+describe('String#check_all?') do
+  it('if a word is anagram check if it is a palindrome') do
+    expect('Level'.check_all?("eevll")).to(eq(true))
+  end
+  it('if a word is anagram check if it is NOT a palindrome') do
+    expect('tea'.check_all?('bee')).to(eq(false))
+  end
+end
+
+describe('String#palindrome?') do
+  it('Check if a word is palindrome') do
+    expect('Level'.palindrome?()).to(eq(true))
+  end
+  it('Check if a word is NOT a palindrome') do
+    expect('testtesttest'.palindrome?()).to(eq(false))
+  end
+end
+
 # describe('String#word?') do
 #   it('Check if two words are actual words') do
 #     expect("listen", "silent".word?()).to(eq(true))
