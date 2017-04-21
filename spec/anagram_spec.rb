@@ -15,6 +15,14 @@ describe('String#anagram?') do
     expect('lOVe, HeLLo'.anagram?()).to(eq(false))
   end
 end
+describe('String#word?') do
+  it('Check if two words are actual words') do
+    expect('listen, silent'.word?()).to(eq(true))
+  end 
+  it('Check if two words are NOT actual words') do
+    expect('yurb, ruby'.word?()).to(eq(false))
+  end
+end
 describe('String#palindrome?') do
   it('Check if a word is palindrome') do
     expect('Level'.palindrome?()).to(eq(true))
