@@ -29,10 +29,24 @@ dictionary = Dictionary.from_file('words/words.txt')
   end
 
   define_method(:word?) do |word2|
-    if dictionary.exists?(self) && dictionary.exists?(word2)
+    words_1 = self.downcase().gsub(/[^a-z0-9]/," ").split(" ")
+    words_2 = word2.downcase().gsub(/[^a-z0-9]/," ").split(" ")
+    words = false
+    words2 = false
+    words_1.each() do |words_1_element|
+      if dictionary.exists?(words_1_element)
+        words = true
+      end
+    end
+    words_2.each() do |words_2_element|
+      if dictionary.exists?(words_2_element)
+        words2 = true
+      end
+    end
+    if words == true && words2 == true
       true
     else
-      false
+      false  
     end
   end
 
