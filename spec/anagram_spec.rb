@@ -47,11 +47,11 @@ describe('String#word?') do
     expect("yurb".word?("ruby")).to(eq(false))
   end
 end
-# describe('String#antigram?') do
-#   it('Check if two words are antigrams') do
-#     expect("hi", "bye".word?()).to(eq(true))
-#   end
-#   it('Check if two words are NOT antigrams') do
-#     expect("united", "untied".word?()).to(eq(false))
-#   end
-# end
+describe('String#antigram?') do
+  it('Check if two words are antigrams') do
+    expect("hi".antigram?("bye")).to(eq(true))
+  end
+  it('Check if two words are NOT antigrams') do
+    expect("united".antigram?("untied")).to(eq(false))
+  end
+end

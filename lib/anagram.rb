@@ -1,7 +1,7 @@
 require ('ruby-dictionary')
 
 class String
-dictionary = Dictionary.from_file('words/words.txt')  
+dictionary = Dictionary.from_file('words/words.txt')
   define_method(:anagram?) do |input_2|
     word_1_arr = self.downcase().gsub(/[^a-z0-9]/,"").split("")
     word_2_arr = input_2.downcase().gsub(/[^a-z0-9]/,"").split("")
@@ -43,4 +43,15 @@ dictionary = Dictionary.from_file('words/words.txt')
       false
     end
   end
+
+  define_method(:antigram?) do |word2|
+    word_1_arr = self.downcase().gsub(/[^a-z0-9]/,"").split("")
+    word_2_arr = word2.downcase().gsub(/[^a-z0-9]/,"").split("")
+    if word_1_arr.sort - word_2_arr.sort == []
+      false
+    else
+      true
+    end
+  end
+
 end
